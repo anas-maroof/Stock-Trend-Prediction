@@ -5,6 +5,7 @@ import pandas_datareader as data
 from tensorflow.keras.models import load_model
 import streamlit as st
 import yfinance as yf
+import pickle
 
 st.title('Stock Trend Prediction')
 user_input = st.text_input('Enter Stock Ticker', 'AAPL')
@@ -50,7 +51,7 @@ scaler = MinMaxScaler(feature_range=(0,1))
 data_training_array = scaler.fit_transform(data_training)
 
 # Load The Model
-model = load_model('keras_model.h5')
+model = pickle.load(open('model.pkl','rb'))
 
 # Testing Part
 past_100_days = data_training.tail(100)
