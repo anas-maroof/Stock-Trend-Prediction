@@ -7,3 +7,4 @@ streamlit==1.16.0
 tensorflow==2.10.0
 scikit_learn==1.2.0
 yfinance
+pickle
